@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:state_management/components/my_button.dart';
 import 'package:state_management/components/text_field.dart';
 
-class Login extends StatefulWidget {
-  Login({super.key, required this.onTap});
+class Registration extends StatelessWidget {
   final Function()? onTap;
+  Registration({super.key, required this.onTap});
+
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +38,7 @@ class Login extends StatefulWidget {
             MyTextField(
               controller: emailController,
               obscureText: false,
-              hintText: 'Email',
+              hintText: 'email',
             ),
             const SizedBox(
               height: 12,
@@ -47,15 +49,25 @@ class Login extends StatefulWidget {
               obscureText: true,
               hintText: 'password',
             ),
+            //confirm password
+            const SizedBox(
+              height: 12,
+            ),
+            MyTextField(
+              controller: confirmPasswordController,
+              obscureText: true,
+              hintText: 'confirm password',
+            ),
             //sign in button
             const SizedBox(
               height: 12,
             ),
+            //sign in button
             MyButton(
               onTap: () {},
-              text: 'Sign in',
+              text: 'Sign up',
             ),
-            //not a member? register now
+            //Already a member? Login now
             const SizedBox(
               height: 12,
             ),
@@ -63,7 +75,7 @@ class Login extends StatefulWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Not a member?',
+                  'Already a member?',
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary),
                 ),
@@ -73,7 +85,7 @@ class Login extends StatefulWidget {
                 GestureDetector(
                   onTap: onTap,
                   child: Text(
-                    'Register now',
+                    'Login now',
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary,
                       fontWeight: FontWeight.bold,

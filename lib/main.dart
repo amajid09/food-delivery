@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:state_management/pages/login_page.dart';
+import 'package:state_management/pages/login_or_register.dart';
 import 'package:state_management/themes/theme_provider.dart';
 
 void main() {
@@ -19,9 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Login(
-        onTap: () {},
-      ),
+      home: const LoginOrRegister(),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
