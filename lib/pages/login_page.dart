@@ -16,6 +16,13 @@ class Login extends StatefulWidget {
 class _Login extends State<Login> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  void login() {
+    /*
+      fill authentication here..
+    */
+
+    Navigator.push(context, MaterialPageRoute(builder: ((context) => const Home())));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,11 +67,7 @@ class _Login extends State<Login> {
               height: 12,
             ),
             MyButton(
-              onTap: () {
-                setState(() {
-                  Home();
-                });
-              },
+              onTap: login,
               text: 'Sign in',
             ),
             //not a member? register now
