@@ -2,12 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:state_management/components/my_button.dart';
 import 'package:state_management/components/text_field.dart';
+import 'package:state_management/pages/home_page.dart';
 
 class Login extends StatefulWidget {
   Login({super.key, required this.onTap});
+
   final Function()? onTap;
-  final TextEditingController emailController = TextEditingController();
+
+  @override
+  State<Login> createState() => _Login();
+}
+
+class _Login extends State<Login> {
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +60,11 @@ class Login extends StatefulWidget {
               height: 12,
             ),
             MyButton(
-              onTap: () {},
+              onTap: () {
+                setState(() {
+                  Home();
+                });
+              },
               text: 'Sign in',
             ),
             //not a member? register now
@@ -71,7 +83,7 @@ class Login extends StatefulWidget {
                   width: 4,
                 ),
                 GestureDetector(
-                  onTap: onTap,
+                  onTap: widget.onTap,
                   child: Text(
                     'Register now',
                     style: TextStyle(

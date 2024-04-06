@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:state_management/components/my_button.dart';
 import 'package:state_management/components/text_field.dart';
 
-class Registration extends StatelessWidget {
+class Registration extends StatefulWidget {
   final Function()? onTap;
-  Registration({super.key, required this.onTap});
 
+  const Registration({super.key, required this.onTap});
+  @override
+  State<Registration> createState() => _Registration();
+}
+
+class _Registration extends State<Registration> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
@@ -83,7 +88,7 @@ class Registration extends StatelessWidget {
                   width: 4,
                 ),
                 GestureDetector(
-                  onTap: onTap,
+                  onTap: widget.onTap,
                   child: Text(
                     'Login now',
                     style: TextStyle(
